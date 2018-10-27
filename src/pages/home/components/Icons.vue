@@ -90,6 +90,7 @@ export default {
     width 100%
     height 0
     padding-bottom 50%
+    margin-top .2rem
     .icon
       position relative
       float left
