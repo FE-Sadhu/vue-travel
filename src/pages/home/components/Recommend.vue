@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item of list" :key="item.id">
                 <img :src="item.imgSrc" class="item-img">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -17,25 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgSrc: 'http://img1.qunarzz.com/sight/p0/1809/cc/cc238b335afb8479a3.water.jpg_250x250_12bc1f4a.jpg',
-        title: '福州动物园世界',
-        desc: '浪漫福州首站，浪漫主题的动物园世界'
-      }, {
-        id: '0002',
-        imgSrc: 'http://img1.qunarzz.com/sight/p0/1506/f6/f6b727f036fe5d6d.water.jpg_250x250_d22ecf6b.jpg',
-        title: '鼓浪屿',
-        desc: '浪漫福州首站，浪漫主题的动物园世界'
-      }, {
-        id: '0003',
-        imgSrc: 'http://img1.qunarzz.com/sight/p0/1711/4f/4fba5e793fe8ef5ca3.img.jpg_250x250_856d43db.jpg',
-        title: '厦门园林植物园',
-        desc: '浪漫福州首站，浪漫主题的动物园世界'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
