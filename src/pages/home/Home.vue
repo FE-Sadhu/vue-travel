@@ -36,14 +36,21 @@ export default {
   },
   methods: {
     getHomeInfo () {
+      //  用axios请求ajax数据
       axios.get('/api/index.json')
         .then((result) => {
           this.getHomeInfoSucc(result)
         }).catch((err) => {
           console.log(`请求数据出错: ${err}`)
         })
+      // 用fetch请求ajax数据
+      // fetch('/api/index.json')
+      //   .then(data => data.json())
+      //   .then(res => this.getHomeInfoSucc(res))
+      //   .catch(err => console.log(`请求数据出错：${err}`))
     },
     getHomeInfoSucc (res) {
+      //  使用axios方法传进来的res数据
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -53,6 +60,15 @@ export default {
         this.recommendList = data.recommendList
         this.weekendList = data.weekendList
       }
+      // 使用fetch方法传进来的res数据
+      // if (res.ret && res.data) {
+      //   const data = res.data
+      //   this.city = data.city
+      //   this.swiperList = data.swiperList
+      //   this.iconList = data.iconList
+      //   this.recommendList = data.recommendList
+      //   this.weekendList = data.weekendList
+      // }
     }
   },
   mounted () {
