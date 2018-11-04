@@ -29,7 +29,8 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        loop: true
+        loop: true,
+        autoPlay: true
       }
     }
   },
