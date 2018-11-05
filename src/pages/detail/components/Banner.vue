@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="banner" @click="handleClickBanner">
-        <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1809/cc/cc238b335afb8479a3.water.jpg_600x330_977d2d43.jpg">
+        <img class="banner-img" :src="bannerImg">
         <div class="banner-info">
-            <div class="banner-title">福州动物园(AAAA景区)</div>
+            <div class="banner-title">{{this.sightName}}</div>
             <div class="banner-number">
               <span class="iconfont banner-icon">&#xe796;</span>
-              39
+              {{this.bannerImgs.length}}
             </div>
         </div>
     </div>
     <common-gallary
-      :imgs="imgs"
+      :imgs="bannerImgs"
       v-show="showGallary"
       @close="handleGallaryClose"
     ></common-gallary>
@@ -23,12 +23,16 @@ import CommonGallary from 'common/gallary/Gallary'
 
 export default {
   name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
   components: {
     CommonGallary
   },
   data () {
     return {
-      imgs: ['http://img1.qunarzz.com/sight/p0/1804/1c/1c8caab40c99cf96a3.water.jpg_r_800x800_a69425c9.jpg', 'http://img1.qunarzz.com/sight/p0/1611/38/38b3f1f03d56b977a3.water.jpg_r_800x800_3d6aa6e9.jpg'],
       showGallary: false
     }
   },
